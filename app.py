@@ -14,23 +14,12 @@ features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
             'Destination_Kolkata', 'Destination_New Delhi']
 
 try:
-    with open(knn_model.pkl, 'rb') as file:
+    # Open the model file using the correct filename in the open() function
+    with open('knn_model.pkl', 'rb') as file:
         model = joblib.load(file)
 except Exception as e:
     print(f"Error: {e}")
-    # Handle the exception (e.g., pr
-# Replace this with your actual trained model
-
-# Define the list of features used for training the model
-features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
-            'Airline_Air India', 'Airline_GoAir', 'Airline_IndiGo', 'Airline_Jet Airways',
-            'Airline_Jet Airways Business', 'Airline_Multiple carriers',
-            'Airline_Multiple carriers Premium economy', 'Airline_SpiceJet',
-            'Airline_Vistara', 'Airline_Vistara Premium economy',
-            'Source_Chennai', 'Source_Delhi', 'Source_Kolkata', 'Source_Mumbai',
-            'Destination_Cochin', 'Destination_Delhi', 'Destination_Hyderabad',
-            'Destination_Kolkata', 'Destination_New Delhi']
-
+    # Handle the exception (e.g., provide an appropriate error message)
 
 # Function to predict fare based on user input
 # Set the selected airline, source, and destination to 1 in the input data
@@ -45,20 +34,12 @@ def predict_fare(total_stops, journey_day, journey_month, duration_hours, airlin
     input_data['Source_' + source] = 1
     input_data['Destination_' + destination] = 1
 
-    # Print input_data for debugging purposes
-    print("Input Data:")
-    print(input_data)
-
     # Predict fare using the model
     predicted_fare = model.predict(input_data)
-    print("Predicted Fare:")
-    print(predicted_fare)  # Print predicted_fare for debugging purposes
     return predicted_fare[0]
-
 
 # Main function to handle Streamlit app
 def main():
-    model = knn_model.pkl        
     # Streamlit app title and sidebar options
     st.title('Flight Fare Prediction')
     st.sidebar.header('Enter Flight Details')
@@ -80,7 +61,6 @@ def main():
         predicted_fare = predict_fare(total_stops, journey_day, journey_month, duration_hours, airline, source,
                                       destination)
         st.write(f"Predicted Fare: {predicted_fare:.2f} INR")
-
 
 # Run the Streamlit app
 if __name__ == "__main__":
