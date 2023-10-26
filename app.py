@@ -14,7 +14,7 @@ features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
             'Destination_Kolkata', 'Destination_New Delhi']
 
 # Load the model
-model = None  # Initialize the model variable outside the try block
+model = knn_model.pkl  # Initialize the model variable outside the try block
 try:
     with open(knn_model.pkl, 'rb') as file:
         model = joblib.load(file)
