@@ -13,13 +13,10 @@ features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
             'Destination_Cochin', 'Destination_Delhi', 'Destination_Hyderabad',
             'Destination_Kolkata', 'Destination_New Delhi']
 
-# Load your pre-trained model
-model_file_path = r'C:\Users\john wick\PycharmProjects\pythonProject1\knn_model.pkl'
-
 # Load the model
 model = None  # Initialize the model variable outside the try block
 try:
-    with open(model_file_path, 'rb') as file:
+    with open(knn_model.pkl, 'rb') as file:
         model = joblib.load(file)
 except Exception as e:
     print(f"Error: {e}")
