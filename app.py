@@ -13,8 +13,6 @@ features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
             'Destination_Cochin', 'Destination_Delhi', 'Destination_Hyderabad',
             'Destination_Kolkata', 'Destination_New Delhi']
 
-# Load the model
-model = knn_model.pkl  # Initialize the model variable outside the try block
 try:
     with open(knn_model.pkl, 'rb') as file:
         model = joblib.load(file)
@@ -60,6 +58,7 @@ def predict_fare(total_stops, journey_day, journey_month, duration_hours, airlin
 
 # Main function to handle Streamlit app
 def main():
+    model = knn_model.pkl        
     # Streamlit app title and sidebar options
     st.title('Flight Fare Prediction')
     st.sidebar.header('Enter Flight Details')
