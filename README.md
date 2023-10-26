@@ -4,7 +4,7 @@ Welcome to the Flight Fare Preduction Project.
 This Respository provides a simple overview of our project.
 
 
-### Link Of Dataset: https://www.kaggle.com/datasets/nikhilmittal/flight-fare-prediction-mh![image](https://github.com/ARYABARAI123/FLIGHT-FARE-PREDICTION/assets/148191636/5142c4ef-ea08-4bc6-9c91-7864d67c2034)
+### Link Of Dataset: https://www.kaggle.com/datasets/nikhilmittal/flight-fare-prediction-mh
 
 
 ### Link Of Colab Notebook Consisting Code And Output: https://colab.research.google.com/drive/1crwd2JmCNh4Jt_UwYTrOHRqgNC7W5FiG#scrollTo=ew25YLjZv36V
