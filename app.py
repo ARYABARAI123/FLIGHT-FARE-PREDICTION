@@ -2,7 +2,7 @@
 import joblib
 import streamlit as st
 import pandas as pd
-import scikit-learn
+import sklearn
 
 # Define the list of features used for training the model
 features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
