@@ -12,31 +12,22 @@ features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
             'Source_Chennai', 'Source_Delhi', 'Source_Kolkata', 'Source_Mumbai',
             'Destination_Cochin', 'Destination_Delhi', 'Destination_Hyderabad',
             'Destination_Kolkata', 'Destination_New Delhi']
-global model
-try:
-    # Open the model file using the correct filename in the open() function
-    with open('knn_model.pkl', 'rb') as file:
-        model = joblib.load(file)
-except Exception as e:
-    print(f"Error: {e}")
-    # Handle the exception (e.g., provide an appropriate error message)
 
 # Function to predict fare based on user input
 # Set the selected airline, source, and destination to 1 in the input data
 def predict_fare(total_stops, journey_day, journey_month, duration_hours, airline, source, destination):
     # Prepare the input data as a DataFrame and perform prediction
-    input_data = pd.DataFrame([[total_stops, journey_day, journey_month, duration_hours,
-                                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-                              columns=features)
-
-    # Set the selected airline, source, and destination to 1 in the input data
-    input_data['Airline_' + airline] = 1
-    input_data['Source_' + source] = 1
-    input_data['Destination_' + destination] = 1
-
-    # Predict fare using the model
-    predicted_fare = model.predict(input_data)
-    return predicted_fare[0]
+     with open('knn_model.pkl', 'rb') as file:
+        model = joblib.load(file)
+        input_data = pd.DataFrame([[total_stops, journey_day, journey_month, duration_hours,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],columns=features)
+        # Set the selected airline, source, and destination to 1 in the input data
+        input_data['Airline_' + airline] = 1
+        input_data['Source_' + source] = 1
+        input_data['Destination_' + destination] = 1
+            
+        # Predict fare using the model
+        predicted_fare = model.predict(input_data)
+        return predicted_fare[0]
 
 # Main function to handle Streamlit app
 def main():
