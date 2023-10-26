@@ -12,7 +12,7 @@ features = ['Total_Stops', 'Journey_day', 'Journey_month', 'Duration_hours',
             'Source_Chennai', 'Source_Delhi', 'Source_Kolkata', 'Source_Mumbai',
             'Destination_Cochin', 'Destination_Delhi', 'Destination_Hyderabad',
             'Destination_Kolkata', 'Destination_New Delhi']
-model = None
+model = "knn_model.pkl"
 try:
     # Open the model file using the correct filename in the open() function
     with open('knn_model.pkl', 'rb') as file:
