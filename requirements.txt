@@ -95,7 +95,6 @@ python-docx==0.8.11
 python-hostlist==1.23.0
 python-swiftclient==4.4.0
 pytz==2023.3
-pywin32==306
 pyzmq==25.1.1
 referencing==0.30.2
 regex==2023.8.8
